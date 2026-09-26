@@ -6,25 +6,25 @@
 ---
 
 ## 1. Project Title & Overview
-**QR Studio** is a modern, high-performance, and client-side web application designed to generate, style, and diagnose QR codes in real-time. Designed according to professional UI/UX standards, the application works entirely within the browser without requiring any server-side processing, database, or external backend.
+**QR Studio** is a modern, high-performance, client-side web application designed to generate, style, and diagnose QR codes in real-time. Designed according to clean UI/UX standards, the application works entirely within the browser without requiring any server-side processing, database, authentication, or external backend.
 
 ---
 
 ## 2. Project Description
-QR Studio provides a seamless, zero-latency dashboard interface for creating standard-compliant QR codes. Users can select from 5 standard QR types, customize color schemes, margins, sizes, and fault tolerance levels, and immediately preview their designs. A built-in **Scan Reliability Engine** audits color contrast and quiet zone geometries to ensure codes remain scannable on real-world smartphone cameras before downloading.
+QR Studio provides a seamless, zero-latency dashboard interface for creating standard-compliant QR codes. Users can select from 5 standard QR types, customize color schemes, margins, sizes, and fault tolerance levels, and immediately preview their designs. A built-in **Scan Reliability Engine** audits color contrast and quiet zone geometries to help ensure codes remain scannable on smartphone cameras before downloading.
 
 ---
 
 ## 3. Key Features
 - **Real-Time Live Generation**: Instant canvas updates on keystrokes and slider adjustments without requiring a manual "Generate" button.
 - **5 Standard QR Types**: URL, Plain Text, Email (mailto), Phone Number (tel), and Wi-Fi network configuration.
-- **Deep Visual Customization**: Custom sizing (160px–600px), hex/color pickers, 4 error-correction levels, and module margins.
-- **6 Built-in Design Presets**: One-click professional colorways that can be freely tweaked after applying.
-- **Real-Time Scan Reliability Engine**: Evaluates WCAG 2.1 relative luminance optical contrast and quiet zones to prevent unreadable prints.
+- **Deep Visual Customization**: Custom sizing (160px–600px slider range, up to 640px via direct input), hex/color pickers, 4 error-correction levels, and module margins.
+- **6 Built-in Design Presets**: One-click colorways that can be freely tweaked after applying without locking the controls.
+- **Real-Time Scan Reliability Engine**: Evaluates WCAG 2.1 relative luminance optical contrast and quiet zones to alert users to low-contrast combinations.
 - **Browser LocalStorage History**: Automatically preserves up to 10 recent QR codes across page refreshes with full configuration restoration.
 - **Multi-Format Export**: High-resolution PNG download, scalable Vector SVG export, and 1-click clipboard image copy.
-- **Light & Dark Mode**: Native persistent theme switching.
-- **Zero Backend Footprint**: 100% private, client-side execution suitable for serverless static hosting on Vercel, Netlify, or GitHub Pages.
+- **Light & Dark Mode**: Native persistent theme switching stored in browser localStorage.
+- **Zero Backend Footprint**: 100% private, client-side execution suitable for static hosting on Vercel, Netlify, or GitHub Pages.
 
 ---
 
@@ -42,9 +42,9 @@ QR Studio provides a seamless, zero-latency dashboard interface for creating sta
 
 ## 5. Customization Features
 Users can modify the following QR attributes with immediate live feedback:
-1. **QR Code Size**: Dual slider and numerical pixel input (160px to 640px) for both digital display and high-DPI physical printing.
+1. **QR Code Size**: Dual slider (160px–600px) and numerical pixel input (up to 640px) for both digital display and physical printing.
 2. **Foreground Color**: Full RGB color picker, uppercase hex code input, and curated contrast swatches.
-3. **Background Color**: Background canvas color picker with hex input.
+3. **Background Color**: Background canvas color picker with hex input and swatches.
 4. **Error Correction Level**:
    - **L (Low)**: ~7% damage recovery (cleanest module density)
    - **M (Medium)**: ~15% recovery (recommended standard)
@@ -76,7 +76,7 @@ Includes 6 pre-configured visual schemes:
 ---
 
 ## 8. Scan Reliability Diagnostics
-To guarantee real-world physical and digital scannability, QR Studio features an automated diagnostic system:
+To evaluate real-world physical and digital scannability, QR Studio features an automated diagnostic system:
 - **WCAG 2.1 Optical Contrast Calculation**: Computes the exact relative luminance ratio between foreground and background colors.
 - **Low Contrast Detection**: Warns the user if the contrast ratio falls below 4.0:1 or is dangerously low (< 2.5:1).
 - **Inverted Color Scheme Warnings**: Alerts when foreground modules are lighter than the background, which causes failures on older CMOS scanner hardware.
@@ -115,10 +115,10 @@ Clone the repository and install dependencies:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/qr-studio.git
+git clone https://github.com/hs2965/qr-studio-gdg-srm.git
 
 # Navigate into project directory
-cd qr-studio
+cd qr-studio-gdg-srm
 
 # Install dependencies
 npm install
@@ -127,6 +127,8 @@ npm install
 ---
 
 ## 13. How to Run Locally
+
+The development server is configured to run on port 3000 via Vite (`vite --port=3000 --host=0.0.0.0`):
 
 ```bash
 # Start the Vite development server on port 3000
@@ -153,7 +155,7 @@ The compiled static assets will be output to the `dist/` directory.
 ### Deploy to Vercel
 1. Push your repository to GitHub.
 2. Sign in to [Vercel](https://vercel.com) and click **"New Project"**.
-3. Import your `qr-studio` repository.
+3. Import your `qr-studio-gdg-srm` repository.
 4. Framework Preset: **Vite**.
 5. Build Command: `npm run build`.
 6. Output Directory: `dist`.
@@ -169,7 +171,7 @@ The compiled static assets will be output to the `dist/` directory.
 
 ## 16. Screenshots & Visual Previews
 
-### Desktop Generator & Live Customization
+### Interface Layout Overview
 ```
 +--------------------------------------------------------------------------------+
 |  QR Studio   [Generator]  [Customization]  [Presets]  [Recent (3)]     [Dark]  |
@@ -188,15 +190,19 @@ The compiled static assets will be output to the `dist/` directory.
 |  Margin: [======o=======] 3 modules               +--------------------------+ |
 |  Error Correction: [L] [M] [Q] [H]                                             |
 +--------------------------------------------------------------------------------+
+|  How QR Studio Works: [1] Choose Type [2] Enter Info [3] Customize ...         |
++--------------------------------------------------------------------------------+
 |  Recent QR Codes History (survives page refresh)                               |
 +--------------------------------------------------------------------------------+
 ```
 
-*(Place real screenshots here in your GitHub repo under `/docs/screenshots/`)*
-- `docs/screenshots/01-desktop-overview.png`
-- `docs/screenshots/02-customization-presets.png`
-- `docs/screenshots/03-scan-reliability-warning.png`
-- `docs/screenshots/04-recent-history-mobile.png`
+> **Note on Screenshots**: Actual screenshots will be added manually to the repository under `docs/screenshots/` after local execution and testing.
+>
+> Planned screenshot locations:
+> - `docs/screenshots/01-desktop-overview.png` – Desktop 2-column layout and live preview
+> - `docs/screenshots/02-customization-presets.png` – Visual presets and customization controls
+> - `docs/screenshots/03-scan-reliability-warning.png` – Real-time contrast & scan reliability diagnostics
+> - `docs/screenshots/04-recent-history-mobile.png` – Recent QR history cards and mobile responsive view
 
 ---
 
@@ -210,7 +216,7 @@ The compiled static assets will be output to the `dist/` directory.
 - [x] **Wi-Fi Type**: Generates standard `WIFI:T:WPA;S:...;P:...;;` strings with hidden network support.
 
 ### Customization & Reliability
-- [x] **Size Slider**: Live canvas scaling across 160px–600px.
+- [x] **Size Slider**: Live canvas scaling across 160px–600px (slider range) and up to 640px (numerical input).
 - [x] **Colors**: Real-time foreground and background color changes.
 - [x] **Margin**: 0 to 6 quiet zone module spacing.
 - [x] **Error Correction**: Live toggling of L (7%), M (15%), Q (25%), and H (30%).
