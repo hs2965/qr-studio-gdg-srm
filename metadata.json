@@ -1,0 +1,6 @@
+{
+  "name": "QR Studio – QR Code Generator & Designer",
+  "description": "Create, customize, and scan professional QR codes in real-time with customizable styling, presets, and scan reliability checks.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,58 @@
+import { Preset } from '../types';
+
+export const QR_PRESETS: Preset[] = [
+  {
+    id: 'classic',
+    name: 'Classic Monochrome',
+    description: 'Standard black & white with medium fault tolerance',
+    fgColor: '#000000',
+    bgColor: '#ffffff',
+    errorCorrection: 'M',
+    margin: 3,
+  },
+  {
+    id: 'high-contrast',
+    name: 'High Contrast Pro',
+    description: 'Deep slate on pure white with maximum fault tolerance (H)',
+    fgColor: '#090d16',
+    bgColor: '#ffffff',
+    errorCorrection: 'H',
+    margin: 4,
+  },
+  {
+    id: 'dark-sleek',
+    name: 'Dark Slate',
+    description: 'Crisp light modules on rich midnight slate backdrop',
+    fgColor: '#f8fafc',
+    bgColor: '#0f172a',
+    errorCorrection: 'M',
+    margin: 3,
+  },
+  {
+    id: 'soft-mint',
+    name: 'Soft Forest',
+    description: 'Subtle emerald green on gentle organic mint',
+    fgColor: '#064e3b',
+    bgColor: '#ecfdf5',
+    errorCorrection: 'Q',
+    margin: 3,
+  },
+  {
+    id: 'cobalt-tech',
+    name: 'Cobalt Blue',
+    description: 'Deep royal blue on clean ice blue backdrop',
+    fgColor: '#1e3a8a',
+    bgColor: '#eff6ff',
+    errorCorrection: 'M',
+    margin: 3,
+  },
+  {
+    id: 'warm-amber',
+    name: 'Warm Espresso',
+    description: 'Dark roasted espresso on smooth golden cream',
+    fgColor: '#451a03',
+    bgColor: '#fef9c3',
+    errorCorrection: 'Q',
+    margin: 3,
+  },
+];
