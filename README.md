@@ -171,38 +171,21 @@ The compiled static assets will be output to the `dist/` directory.
 
 ## 16. Screenshots & Visual Previews
 
-### Interface Layout Overview
-```
-+--------------------------------------------------------------------------------+
-|  QR Studio   [Generator]  [Customization]  [Presets]  [Recent (3)]     [Dark]  |
-+--------------------------------------------------------------------------------+
-|                                                                                |
-|  [ URL | Plain Text | Email | Phone | Wi-Fi ]     +--------------------------+ |
-|                                                   |  LIVE PREVIEW            | |
-|  Website URL: [ https://gdgsrm.org        ]       |  +--------------------+  | |
-|                                                   |  |   [QR CANVAS]      |  | |
-|  Design Presets:                                  |  +--------------------+  | |
-|  [Classic] [High Contrast] [Dark] [Forest] ...    |  Scan Reliability: OK    | |
-|                                                   |  Contrast: 18.2:1        | |
-|  Customization:                                   |                          | |
-|  Size: [==========o=====] 280px                   |  [ Download PNG ]        | |
-|  Colors: [ #0f172a ]  [ #ffffff ]                 |  [ Vector SVG ] [ Copy ] | |
-|  Margin: [======o=======] 3 modules               +--------------------------+ |
-|  Error Correction: [L] [M] [Q] [H]                                             |
-+--------------------------------------------------------------------------------+
-|  How QR Studio Works: [1] Choose Type [2] Enter Info [3] Customize ...         |
-+--------------------------------------------------------------------------------+
-|  Recent QR Codes History (survives page refresh)                               |
-+--------------------------------------------------------------------------------+
-```
+### 1. Desktop Overview
 
-> **Note on Screenshots**: Actual screenshots will be added manually to the repository under `docs/screenshots/` after local execution and testing.
->
-> Planned screenshot locations:
-> - `docs/screenshots/01-desktop-overview.png` – Desktop 2-column layout and live preview
-> - `docs/screenshots/02-customization-presets.png` – Visual presets and customization controls
-> - `docs/screenshots/03-scan-reliability-warning.png` – Real-time contrast & scan reliability diagnostics
-> - `docs/screenshots/04-recent-history-mobile.png` – Recent QR history cards and mobile responsive view
+![Desktop Overview](preview/01-desktop-overview.png)
+
+### 2. Customization & Presets
+
+![Customization & Presets](preview/02-customization-presets.png)
+
+### 3. Scan Reliability Warning
+
+![Scan Reliability Warning](preview/03-scan-reliability-warning.png)
+
+### 4. Mobile & Recent QR History
+
+![Mobile & Recent QR History](preview/04-recent-history-mobile.png)
 
 ---
 
