@@ -135,9 +135,13 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
         <Download className="w-4 h-4 stroke-[2.2]" />
         <span>{downloadingPng ? 'Generating PNG...' : 'Download PNG'}</span>
         <span className="text-xs font-mono opacity-80 font-normal">
-          ({settings.size}×{settings.size})
+          ({settings.size}×{settings.size} px)
         </span>
       </button>
+
+      <p className="text-[11px] text-center text-slate-400 dark:text-slate-500 font-mono">
+        Export size includes margin ({settings.size}×{settings.size} px)
+      </p>
 
       {/* Secondary Actions: SVG Download & Copy */}
       <div className="grid grid-cols-2 gap-2">

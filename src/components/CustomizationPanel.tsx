@@ -39,7 +39,7 @@ export const CustomizationPanel: React.FC<CustomizationPanelProps> = ({
       <div>
         <div className="flex items-center justify-between mb-1.5">
           <label htmlFor="qr-size-slider" className="text-xs font-medium text-slate-700 dark:text-slate-300">
-            Export Dimensions
+            Export Dimensions (Total Size)
           </label>
           <div className="flex items-center gap-1">
             <input
@@ -69,6 +69,9 @@ export const CustomizationPanel: React.FC<CustomizationPanelProps> = ({
           <span>300px (Standard)</span>
           <span>600px (High-Res Print)</span>
         </div>
+        <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-1">
+          Final exported image is {settings.size}×{settings.size} px (includes {settings.margin} {settings.margin === 1 ? 'module' : 'modules'} margin).
+        </p>
       </div>
 
       {/* 2. Colors: Foreground & Background */}

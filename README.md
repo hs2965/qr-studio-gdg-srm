@@ -1,7 +1,7 @@
 # QR Studio – QR Code Generator & Designer
 
 > **"Create. Customize. Scan."**  
-> Built for the **GDG on Campus SRM Technical Domain Recruitment 2026-27** submission.
+> Built for the **GDG on Campus SRM Technical Domain Recruitment 2026–27** submission.
 
 ---
 
@@ -86,7 +86,7 @@ To evaluate real-world physical and digital scannability, QR Studio features an 
 ---
 
 ## 9. Recent QR Codes & LocalStorage
-- **Persistent Storage**: Utilizes browser `localStorage` (`qr_studio_recent_history_v1`) to persist up to 10 recent QR designs across sessions and page refreshes.
+- **Persistent Storage**: Utilizes browser `localStorage` (`qr-studio-recent-qrs`) to persist up to 10 recent QR designs across sessions and page refreshes on the current device.
 - **Complete State Snapshot**: Saves type, input form data, customization settings, timestamps, and thumbnail data URLs.
 - **"Use Again" / Load**: Restores all inputs and settings to the active editor with one click.
 - **Corruption Resilience**: Includes try/catch parsing guards and schema validation to handle empty or damaged storage without crashing.

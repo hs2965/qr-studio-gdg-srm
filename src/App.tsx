@@ -236,7 +236,7 @@ export default function App() {
         <section id="generator" className="text-left space-y-2">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 border border-indigo-200/80 dark:border-indigo-800/60">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-            <span>GDG on Campus SRM · Technical Domain Recruitment 2026-27</span>
+            <span>GDG on Campus SRM · Technical Domain Recruitment 2026–27</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             QR Studio <span className="font-normal text-slate-500 dark:text-slate-400">–</span>{' '}
@@ -455,7 +455,7 @@ export default function App() {
                 SRM Institute of Science and Technology
               </span>
               <h3 className="text-lg font-bold">
-                GDG on Campus SRM – Technical Domain Recruitment 2026-27
+                GDG on Campus SRM · Technical Domain Recruitment 2026–27
               </h3>
             </div>
             <div className="flex items-center gap-2">

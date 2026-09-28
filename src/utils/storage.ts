@@ -1,13 +1,15 @@
 import { StoredQRItem } from '../types';
 
-const STORAGE_KEY = 'qr_studio_recent_history_v1';
+const STORAGE_KEY = 'qr-studio-recent-qrs';
 const MAX_RECENT_ITEMS = 10;
 
 /**
- * Safely retrieves stored recent QR codes from localStorage with corrupted data protection.
+ * Safely retrieves stored recent QR codes from the current browser's localStorage.
+ * Completely client-side and isolated to the active browser profile.
+ * Falls back to [] if localStorage is empty, unavailable, or corrupted.
  */
 export function getRecentQRCodes(): StoredQRItem[] {
-  if (typeof window === 'undefined') return [];
+  if (typeof window === 'undefined' || !window.localStorage) return [];
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return [];
@@ -15,7 +17,7 @@ export function getRecentQRCodes(): StoredQRItem[] {
     if (!Array.isArray(parsed)) {
       return [];
     }
-    // Filter and sanitize items to prevent schema drift crashes
+    // Filter and sanitize items to prevent schema drift or corrupted entries
     return parsed.filter((item): item is StoredQRItem => {
       return (
         item &&
@@ -28,7 +30,7 @@ export function getRecentQRCodes(): StoredQRItem[] {
       );
     });
   } catch (err) {
-    console.warn('Failed to parse recent QR codes from localStorage:', err);
+    console.warn('Failed to parse recent QR codes from browser localStorage:', err);
     return [];
   }
 }
@@ -37,7 +39,7 @@ export function getRecentQRCodes(): StoredQRItem[] {
  * Saves a new or updated item into recent list, keeping at most MAX_RECENT_ITEMS.
  */
 export function saveRecentQRCode(item: Omit<StoredQRItem, 'id' | 'timestamp'> & { id?: string }): StoredQRItem[] {
-  if (typeof window === 'undefined') return [];
+  if (typeof window === 'undefined' || !window.localStorage) return [];
   try {
     const current = getRecentQRCodes();
     const newItem: StoredQRItem = {
@@ -55,35 +57,35 @@ export function saveRecentQRCode(item: Omit<StoredQRItem, 'id' | 'timestamp'> & 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
     return updated;
   } catch (err) {
-    console.warn('Failed to save recent QR code to localStorage:', err);
+    console.warn('Failed to save recent QR code to browser localStorage:', err);
     return getRecentQRCodes();
   }
 }
 
 /**
- * Deletes a single item from recent history
+ * Deletes a single item from recent history in current browser
  */
 export function deleteRecentQRCode(id: string): StoredQRItem[] {
-  if (typeof window === 'undefined') return [];
+  if (typeof window === 'undefined' || !window.localStorage) return [];
   try {
     const current = getRecentQRCodes();
     const updated = current.filter((item) => item.id !== id);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
     return updated;
   } catch (err) {
-    console.warn('Failed to delete recent QR item:', err);
+    console.warn('Failed to delete recent QR item from browser localStorage:', err);
     return getRecentQRCodes();
   }
 }
 
 /**
- * Clears all recent QR codes
+ * Clears all recent QR codes from current browser
  */
 export function clearRecentQRCodes(): void {
-  if (typeof window === 'undefined') return;
+  if (typeof window === 'undefined' || !window.localStorage) return;
   try {
     localStorage.removeItem(STORAGE_KEY);
   } catch (err) {
-    console.warn('Failed to clear recent QR codes:', err);
+    console.warn('Failed to clear recent QR codes from browser localStorage:', err);
   }
 }
